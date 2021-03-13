@@ -1,0 +1,5 @@
+{
+    "ipfs_version": "0.8.0",
+    "ipfs_bin_path": "../bin/ipfs",
+    "ipfs_path": "../repo"
+}
