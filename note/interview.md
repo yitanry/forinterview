@@ -143,6 +143,18 @@ linux中包含的各种实现及原理。
 
 ### 分散的一些知识点
 
+#### signal机制（[抄了](http://gityuan.com/2015/12/20/signal/)）
+
+linux定义了64种信号，分为不可靠信号和可靠信号，每种信号各占32。
+不可靠信号不支持排队，信号可能丢失；对进程发送多次相同信号，只能收到一次。1-31。
+可靠信号为实时信号，支持排队；信号不会丢失，发多少次就能收到多少次。
+
+用过的信号：
+- 1 SIGNHUP 挂起进程（nginx中为重启`nginx -s reload`、`kill -HUP`）
+- 9 SIGNKILL kill进程
+- 3 SIGNQUIT 退出进程（nginx中为优雅退出`nginx -s quit`）
+- 10 SIGNUSR1 用户自定义信号（nginx中为重新打开文件`nginx -s reopen`，用来切割文件）
+
 #### 进程
 
 **用户态&内核态**
